@@ -32,6 +32,8 @@ class Solution(object):
     #         median = 1.0 * (all_nums[(ls1 + ls2) / 2] + all_nums[(ls1 + ls2) / 2 - 1]) / 2
     #     return median
 
+
+    # 92 ms	14.5 MB	
     def findMedianSortedArrays(self, nums1, nums2):
         # https://discuss.leetcode.com/topic/4996/share-my-o-log-min-m-n-solution-with-explanation
         # https://discuss.leetcode.com/topic/16797/very-concise-o-log-min-m-n-iterative-solution-with-detailed-explanation
@@ -42,10 +44,10 @@ class Solution(object):
         while l <= r:
             mid2 = (l + r) >> 1
             mid1 = ls1 + ls2 - mid2
-            L1 = -sys.maxint - 1 if mid1 == 0 else nums1[(mid1 - 1) >> 1]
-            L2 = -sys.maxint - 1 if mid2 == 0 else nums2[(mid2 - 1) >> 1]
-            R1 = sys.maxint if mid1 == 2 * ls1 else nums1[mid1 >> 1]
-            R2 = sys.maxint if mid2 == 2 * ls2 else nums2[mid2 >> 1]
+            L1 = -sys.maxsize - 1 if mid1 == 0 else nums1[(mid1 - 1) >> 1]
+            L2 = -sys.maxsize - 1 if mid2 == 0 else nums2[(mid2 - 1) >> 1]
+            R1 = sys.maxsize if mid1 == 2 * ls1 else nums1[mid1 >> 1]
+            R2 = sys.maxsize if mid2 == 2 * ls2 else nums2[mid2 >> 1]
             if L1 > R2:
                 l = mid2 + 1
             elif L2 > R1:
@@ -57,4 +59,4 @@ class Solution(object):
 if __name__ == '__main__':
     # begin
     s = Solution()
-    print s.findMedianSortedArrays([1, 1], [1, 2])
+    print (s.findMedianSortedArrays([1, 1], [1, 2]))

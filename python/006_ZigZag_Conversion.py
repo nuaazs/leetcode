@@ -30,6 +30,7 @@ class Solution(object):
     #         result += ''.join(temp_s[i])
     #     return result
 
+    # 	44 ms	14.4 MB
     def convert(self, s, numRows):
         # https://leetcode.com/discuss/90908/easy-python-o-n-solution-94%25-with-explanations
         if numRows == 1:

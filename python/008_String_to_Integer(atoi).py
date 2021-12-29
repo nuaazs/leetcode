@@ -1,4 +1,7 @@
 class Solution(object):
+
+
+    # 32 ms	14.2 MB	python3
     def myAtoi(self, str):
         """
         :type str: str
@@ -17,14 +20,16 @@ class Solution(object):
             pos += 1
         while pos < ls and ord(str[pos]) >= ord('0') and ord(str[pos]) <= ord('9'):
             num = ord(str[pos]) - ord('0')
-            if result > max_int / 10 or ( result == max_int / 10 and num >= 8):
-                if sign == -1:
-                    return min_int
-                return max_int
+            
             result = result * 10 + num
             pos += 1
+            
+            if result > max_int:
+                if sign == -1:
+                    if result >= 2147483648:
+                        return min_int
+                return max_int
         return sign * result
-
     # def myAtoi(self, s):
     #     #https://leetcode.com/discuss/83626/line-python-solution-eafp-instead-lbyl-easier-logic-beats-24%25
     #     try:

@@ -60,7 +60,18 @@ class Solution(object):
     #     else:
     #         return False
 
+    # 	48 ms	14.4 MB	python3
+    class Solution:
+        def isPalindrome(self, x: int) -> bool:
+            if x<0:
+                return False
 
+            inputNum = x
+            newNum = 0
+            while x>0:
+                newNum = newNum * 10 + x%10
+                x = x//10
+            return newNum == inputNum
 if __name__ == '__main__':
     # begin
     s = Solution()
